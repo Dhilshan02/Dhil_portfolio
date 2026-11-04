@@ -23,13 +23,34 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+    position: relative;
   }
 
   body {
     background-color: #070a13;
     color: #e2e8f0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
+    overflow-x: clip;
+    position: relative;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-x: clip;
+    position: relative;
+  }
+
+  img, video, canvas, svg {
+    max-width: 100%;
   }
 
   button, a {
@@ -145,7 +166,7 @@
 /* Watermark Text */
 .watermark-initial {
   position: absolute;
-  font-size: 26rem;
+  font-size: clamp(8rem, 22vw, 22rem);
   font-weight: 900;
   line-height: 1;
   color: rgba(255, 255, 255, 0.015);
@@ -156,6 +177,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 /* Glowing Neon Ring */
@@ -203,22 +226,12 @@
 }
 
 
-/* Off-screen section render performance optimization */
-@media (min-width: 640px) {
-  section#skills,
-  section#projects,
-  section#experience,
-  section#contact {
-    content-visibility: auto;
-    contain-intrinsic-size: 1px 750px;
-  }
-}
-
 /* Mobile GPU & interaction optimization */
 @media (max-width: 768px) {
   .glass-panel {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(13, 19, 33, 0.92);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.35);
   }
 

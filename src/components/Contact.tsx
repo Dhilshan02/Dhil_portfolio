@@ -98,12 +98,12 @@ export const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 relative bg-[#070a13] border-t border-slate-900">
+    <section id="contact" className="py-24 relative bg-[#070a13] border-t border-slate-900 overflow-hidden w-full max-w-full">
       
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-cyan-500/10 rounded-full blur-[60px] sm:blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full max-w-full">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">

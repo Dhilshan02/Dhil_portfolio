@@ -21,7 +21,7 @@ export function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#070a13] text-slate-100 font-sans relative selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className="min-h-screen bg-[#070a13] text-slate-100 font-sans relative selection:bg-cyan-500/30 selection:text-cyan-200 w-full max-w-[100vw] overflow-x-hidden overflow-x-clip">
       
       {/* Sticky Header Navigation */}
       <Navbar
@@ -30,7 +30,7 @@ export function App() {
       />
 
       {/* Main Page Content */}
-      <main>
+      <main className="w-full max-w-[100vw] overflow-x-hidden overflow-x-clip">
         <Hero
           onOpenCV={() => setIsCVModalOpen(true)}
           onOpenDemo={() => setIsDemoModalOpen(true)}

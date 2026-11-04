@@ -14,15 +14,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden bg-cyber-grid">
+    <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden bg-cyber-grid w-full max-w-full">
       {/* Ambient background glow orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none transform translate-z-0" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none transform translate-z-0" />
+      <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-cyan-500/10 rounded-full blur-[60px] sm:blur-[100px] pointer-events-none transform translate-z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-96 sm:h-96 bg-purple-600/10 rounded-full blur-[60px] sm:blur-[100px] pointer-events-none transform translate-z-0" />
       
       {/* Floating Watermark Initial 'D' */}
       <div className="watermark-initial">D</div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full max-w-full">
         <div className="space-y-10">
           
           {/* TOP SECTION: Left side Profile Photo, Right side Title/Badge */}
@@ -32,7 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
             <div className="lg:col-span-5 relative flex flex-col items-center justify-center">
               
               {/* High Tech Reticle Banner Container */}
-              <div className="relative group w-full max-w-xs sm:max-w-md lg:max-w-full">
+              <div className="relative group w-full max-w-[280px] sm:max-w-md lg:max-w-full">
                 
                 {/* Outer Pulsing Glow Aura */}
                 <div className="absolute -inset-2 sm:-inset-3 bg-linear-to-r from-cyan-500 via-teal-500 to-purple-600 rounded-2xl opacity-30 blur-2xl group-hover:opacity-60 transition duration-1000"></div>
@@ -84,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
 
               {/* Main Role Title */}
               <div>
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight font-heading">
+                <h1 className="text-2xl sm:text-4xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight font-heading break-words">
                   Software Engineering <span className="shimmer-text">Undergraduate</span>
                 </h1>
                 <p className="mt-2 text-base sm:text-lg font-mono text-cyan-400 font-medium">

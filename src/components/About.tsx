@@ -31,12 +31,12 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative bg-[#070a13] border-t border-slate-900">
+    <section id="about" className="py-24 relative bg-[#070a13] border-t border-slate-900 overflow-hidden w-full max-w-full">
       
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-0 w-72 h-72 bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-48 h-48 sm:w-72 sm:h-72 bg-cyan-500/5 rounded-full blur-[60px] sm:blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full max-w-full">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
