@@ -93,7 +93,7 @@ export const Contact: React.FC = () => {
       value: PERSONAL_INFO.photoStudio,
       href: PERSONAL_INFO.instagram,
       icon: Camera,
-      color: "text-amber-400 border-amber-500/30 bg-amber-950/60"
+      color: "text-cyan-400 border-cyan-500/30 bg-cyan-950/60"
     }
   ];
 

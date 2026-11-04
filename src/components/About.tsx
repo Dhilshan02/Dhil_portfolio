@@ -96,7 +96,7 @@ export const About: React.FC = () => {
               </p>
 
               <p className="text-slate-300 text-sm leading-relaxed">
-                As the founder and owner of <strong className="text-amber-300">DD Photography 95</strong>, I bring an eye for creative composition, visual hierarchy, and client empathy directly into UI/UX design and frontend development.
+                As the founder and owner of <strong className="text-white">DD Photography 95</strong>, I bring an eye for creative composition, visual hierarchy, and client empathy directly into UI/UX design and frontend development.
               </p>
             </div>
 
@@ -111,8 +111,8 @@ export const About: React.FC = () => {
                 <span>Methodology: Agile, Clean Code, CI/CD Workflows</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400" />
-                <span className="text-amber-200/90">Studio Owner: Founder & Creative Lead @ DD PHOTOGRAPHY 95</span>
+                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+                <span>Studio Owner: Founder & Creative Lead @ DD PHOTOGRAPHY 95</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-cyan-400" />

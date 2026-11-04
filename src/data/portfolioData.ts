@@ -178,7 +178,7 @@ export const TIMELINE: TimelineItem[] = [
     category: "Creative Venture",
     type: "venture",
     badge: "Founder & Studio Owner",
-    accentColor: "amber",
+    accentColor: "cyan",
     description: "Founder and sole proprietor of DD Photography 95, an independent photography and visual media studio. Directing end-to-end studio operations, creative photography, lighting design, high-end digital retouching, and client relationship management. Applying strong aesthetic principles and visual composition that directly inform UI/UX and front-end engineering excellence.",
     achievements: [
       "Founded and scaled DD Photography 95 into a recognized creative studio specializing in event photography, commercial shoots, and high-fidelity portraits",

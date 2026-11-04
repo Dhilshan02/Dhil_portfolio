@@ -104,28 +104,28 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
               // PROFESSIONAL SUMMARY
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans bg-slate-900/50 p-4 rounded-xl border border-slate-800">
-              Third-year Software Engineering undergraduate at NSBM Green University and founder/owner of <strong className="text-amber-300">DD Photography 95</strong>. Hands-on experience developing enterprise full-stack web applications with <strong className="text-white">Java Spring Boot</strong>, <strong className="text-white">ASP.NET Core 8</strong>, and <strong className="text-white">React with TypeScript</strong>. Combines software architecture, relational databases, and agile engineering with artistic visual direction, creative composition, and entrepreneurial leadership.
+              Third-year Software Engineering undergraduate at NSBM Green University and founder/owner of <strong className="text-white">DD Photography 95</strong>. Hands-on experience developing enterprise full-stack web applications with <strong className="text-white">Java Spring Boot</strong>, <strong className="text-white">ASP.NET Core 8</strong>, and <strong className="text-white">React with TypeScript</strong>. Combines software architecture, relational databases, and agile engineering with artistic visual direction, creative composition, and entrepreneurial leadership.
             </p>
           </div>
 
           {/* Entrepreneurial & Practical Experience */}
           <div>
-            <h2 className="text-sm font-mono uppercase tracking-wider text-amber-400 font-bold mb-3 flex items-center gap-2">
-              <Camera className="w-4 h-4 text-amber-400" />
+            <h2 className="text-sm font-mono uppercase tracking-wider text-cyan-400 font-bold mb-3 flex items-center gap-2">
+              <Camera className="w-4 h-4 text-cyan-400" />
               <span>// ENTREPRENEURIAL LEADERSHIP & PRACTICAL EXPERIENCE</span>
             </h2>
             <div className="space-y-4 font-sans text-xs sm:text-sm">
               
               {/* DD Photography 95 */}
-              <div className="p-4 rounded-xl bg-slate-900/50 border border-amber-500/30">
+              <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
                 <div className="flex flex-wrap justify-between items-start font-heading font-bold text-white text-base gap-2">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    <Sparkles className="w-4 h-4 text-cyan-400" />
                     <span>Founder, Studio Owner & Creative Director</span>
                   </div>
-                  <span className="font-mono text-xs text-amber-300 font-normal">2022 – Present</span>
+                  <span className="font-mono text-xs text-cyan-400 font-normal">2022 – Present</span>
                 </div>
-                <p className="text-xs font-mono text-amber-400/90 mt-0.5">DD Photography 95 — Mullipothana, Trincomalee</p>
+                <p className="text-xs font-mono text-slate-400 mt-0.5">DD Photography 95 — Mullipothana, Trincomalee</p>
                 <ul className="mt-2 space-y-1 text-xs text-slate-300 list-disc list-inside">
                   <li>Founded and direct all operations for DD Photography 95, delivering high-end wedding, event, and commercial portrait photography.</li>
                   <li>Direct lighting design, creative composition, and professional digital retouching workflows using Adobe Lightroom and Adobe Photoshop.</li>
