@@ -1,4 +1,4 @@
-import { jsPDF } from 'jspdf';
+import type { jsPDF } from 'jspdf';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 // jsPDF's built-in fonts only support basic Latin characters.
@@ -19,8 +19,9 @@ const COLORS = {
   link: [17, 24, 39] as [number, number, number],       // #111827
 };
 
-export const generateCV = (): jsPDF => {
-  const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+export const generateCV = async (): Promise<jsPDF> => {
+  const { jsPDF: JSPDF } = await import('jspdf');
+  const doc = new JSPDF({ unit: 'mm', format: 'a4' });
   const pageW = 210;
   const pageH = 297;
   const margin = 12;
@@ -373,6 +374,7 @@ export const generateCV = (): jsPDF => {
   return doc;
 };
 
-export const downloadCV = (): void => {
-  generateCV().save(PERSONAL_INFO.cvFilename);
+export const downloadCV = async (): Promise<void> => {
+  const doc = await generateCV();
+  doc.save(PERSONAL_INFO.cvFilename);
 };

@@ -76,6 +76,8 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose 
           <img
             src={slides[activeSlide].image}
             alt={slides[activeSlide].title}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transition-all duration-500"
           />
 

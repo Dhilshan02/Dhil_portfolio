@@ -30,26 +30,35 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenCV }
   };
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY > 30;
+          setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
 
-      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
-      const scrollPosition = window.scrollY + 200;
+          const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+          const scrollPosition = window.scrollY + 200;
 
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
-            break;
+          for (const section of sections) {
+            const el = document.getElementById(section);
+            if (el) {
+              const top = el.offsetTop;
+              const height = el.offsetHeight;
+              if (scrollPosition >= top && scrollPosition < top + height) {
+                setActiveSection((prev) => (prev !== section ? section : prev));
+                break;
+              }
+            }
           }
-        }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -78,7 +87,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenCV }
             className="flex items-center gap-2.5 group cursor-pointer"
           >
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-cyan-500/40 group-hover:border-cyan-400 group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)] transition-all">
-              <img src={dLogo} alt="D Logo" className="w-full h-full object-cover" />
+              <img src={dLogo} alt="D Logo" width={40} height={40} decoding="async" className="w-full h-full object-cover" />
             </div>
             <div className="flex flex-col">
               <span className="font-heading font-extrabold text-lg text-white tracking-wider group-hover:text-cyan-400 transition-colors flex items-center gap-1">

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -7,10 +7,12 @@ import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { DemoModal } from './components/Modals/DemoModal';
-import { CaseStudyModal } from './components/Modals/CaseStudyModal';
-import { CVModal } from './components/Modals/CVModal';
-import { CommandPaletteModal } from './components/Modals/CommandPaletteModal';
+
+// Code-split modals so their assets & DOM are loaded only on demand
+const DemoModal = lazy(() => import('./components/Modals/DemoModal').then(m => ({ default: m.DemoModal })));
+const CaseStudyModal = lazy(() => import('./components/Modals/CaseStudyModal').then(m => ({ default: m.CaseStudyModal })));
+const CVModal = lazy(() => import('./components/Modals/CVModal').then(m => ({ default: m.CVModal })));
+const CommandPaletteModal = lazy(() => import('./components/Modals/CommandPaletteModal').then(m => ({ default: m.CommandPaletteModal })));
 
 export function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -51,29 +53,45 @@ export function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Interactive Modals */}
-      <DemoModal
-        isOpen={isDemoModalOpen}
-        onClose={() => setIsDemoModalOpen(false)}
-      />
+      {/* Interactive Modals (Loaded dynamically on-demand) */}
+      {isDemoModalOpen && (
+        <Suspense fallback={null}>
+          <DemoModal
+            isOpen={isDemoModalOpen}
+            onClose={() => setIsDemoModalOpen(false)}
+          />
+        </Suspense>
+      )}
 
-      <CaseStudyModal
-        isOpen={isCaseStudyModalOpen}
-        onClose={() => setIsCaseStudyModalOpen(false)}
-      />
+      {isCaseStudyModalOpen && (
+        <Suspense fallback={null}>
+          <CaseStudyModal
+            isOpen={isCaseStudyModalOpen}
+            onClose={() => setIsCaseStudyModalOpen(false)}
+          />
+        </Suspense>
+      )}
 
-      <CVModal
-        isOpen={isCVModalOpen}
-        onClose={() => setIsCVModalOpen(false)}
-      />
+      {isCVModalOpen && (
+        <Suspense fallback={null}>
+          <CVModal
+            isOpen={isCVModalOpen}
+            onClose={() => setIsCVModalOpen(false)}
+          />
+        </Suspense>
+      )}
 
-      <CommandPaletteModal
-        isOpen={isCommandPaletteOpen}
-        onClose={() => setIsCommandPaletteOpen(false)}
-        onOpenCV={() => setIsCVModalOpen(true)}
-        onOpenDemo={() => setIsDemoModalOpen(true)}
-        onOpenCaseStudy={() => setIsCaseStudyModalOpen(true)}
-      />
+      {isCommandPaletteOpen && (
+        <Suspense fallback={null}>
+          <CommandPaletteModal
+            isOpen={isCommandPaletteOpen}
+            onClose={() => setIsCommandPaletteOpen(false)}
+            onOpenCV={() => setIsCVModalOpen(true)}
+            onOpenDemo={() => setIsDemoModalOpen(true)}
+            onOpenCaseStudy={() => setIsCaseStudyModalOpen(true)}
+          />
+        </Suspense>
+      )}
 
     </div>
   );

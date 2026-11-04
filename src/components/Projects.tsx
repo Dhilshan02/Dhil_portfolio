@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { PROJECTS } from '../data/portfolioData';
 import { BookOpen, Eye, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from './Icons';
@@ -13,9 +13,11 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenCaseStudy, onOpenDemo 
 
   const tabs = ['All Projects', 'Full-Stack', 'AI & Cloud', 'UI/UX Design'];
 
-  const filteredProjects = activeTab === 'All Projects'
-    ? PROJECTS
-    : PROJECTS.filter(p => p.category === activeTab);
+  const filteredProjects = useMemo(() => {
+    return activeTab === 'All Projects'
+      ? PROJECTS
+      : PROJECTS.filter(p => p.category === activeTab);
+  }, [activeTab]);
 
   return (
     <section id="projects" className="py-24 relative bg-[#070a13] border-t border-slate-900">
@@ -71,6 +73,10 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenCaseStudy, onOpenDemo 
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    width={600}
+                    height={240}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter contrast-105"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-[#0d1321] via-transparent to-transparent opacity-80" />

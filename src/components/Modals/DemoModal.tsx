@@ -40,6 +40,8 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
           <img
             src={travelAppImg}
             alt="Demo Preview"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover filter brightness-75"
           />
 

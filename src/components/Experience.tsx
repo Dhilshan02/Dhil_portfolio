@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { TIMELINE } from '../data/portfolioData';
 import {
   GraduationCap,
@@ -18,15 +18,17 @@ type FilterCategory = 'all' | 'education' | 'ventures';
 export const Experience: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<FilterCategory>('all');
 
-  const filteredTimeline = TIMELINE.filter((item) => {
-    if (activeFilter === 'education') {
-      return item.type === 'education' || item.type === 'diploma';
-    }
-    if (activeFilter === 'ventures') {
-      return item.type === 'venture' || item.type === 'experience';
-    }
-    return true;
-  });
+  const filteredTimeline = useMemo(() => {
+    return TIMELINE.filter((item) => {
+      if (activeFilter === 'education') {
+        return item.type === 'education' || item.type === 'diploma';
+      }
+      if (activeFilter === 'ventures') {
+        return item.type === 'venture' || item.type === 'experience';
+      }
+      return true;
+    });
+  }, [activeFilter]);
 
   const getItemIcon = (type?: TimelineItem['type']) => {
     switch (type) {

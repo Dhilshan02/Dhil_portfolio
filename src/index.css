@@ -20,11 +20,20 @@
     --color-border: #28372E;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     background-color: #070a13;
     color: #e2e8f0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     overflow-x: hidden;
+  }
+
+  button, a {
+    touch-action: manipulation;
   }
 
   h1, h2, h3, h4, .font-heading {
@@ -121,6 +130,7 @@
   stroke-dashoffset: 1000;
   animation: ekg-draw 4s linear infinite;
   filter: drop-shadow(0 0 8px #00f0ff);
+  will-change: stroke-dashoffset;
 }
 
 @keyframes ekg-draw {
@@ -165,6 +175,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   animation: shine 4s linear infinite;
+  will-change: background-position;
 }
 
 @keyframes shine {
@@ -189,6 +200,48 @@
   );
   background-size: 100% 4px;
   pointer-events: none;
+}
+
+
+/* Off-screen section render performance optimization */
+@media (min-width: 640px) {
+  section#skills,
+  section#projects,
+  section#experience,
+  section#contact {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 750px;
+  }
+}
+
+/* Mobile GPU & interaction optimization */
+@media (max-width: 768px) {
+  .glass-panel {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.35);
+  }
+
+  .glass-panel-hover:hover {
+    transform: none;
+    box-shadow: 0 6px 20px 0 rgba(0, 240, 255, 0.12);
+  }
+
+  .ekg-line {
+    filter: drop-shadow(0 0 4px #00f0ff);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Luxury Emerald & Champagne Gold Theme Override */

@@ -1,41 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { SKILLS } from '../data/portfolioData';
-import { Code2, Terminal, Cpu, Database, Server, Zap, Palette, FileCode2, Layout, Grid, Atom, Network, HardDrive, GitBranch, Send } from 'lucide-react';
+import {
+  Code2,
+  Terminal,
+  Cpu,
+  Database,
+  Server,
+  Zap,
+  Palette,
+  FileCode2,
+  Layout,
+  Grid,
+  Atom,
+  Network,
+  HardDrive,
+  GitBranch,
+  Send,
+  type LucideIcon
+} from 'lucide-react';
+
+const ICON_MAP: Record<string, LucideIcon> = {
+  Code2,
+  FileCode2,
+  Code: Code2,
+  Terminal,
+  Database,
+  Layout,
+  Atom,
+  Zap,
+  Palette,
+  Grid,
+  Server,
+  Cpu,
+  Network,
+  HardDrive,
+  GitBranch,
+  Send,
+};
+
+const CATEGORIES = ['Languages', 'Frontend', 'Backend', 'Databases & Tools'];
 
 export const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('Languages');
 
-  const categories = ['Languages', 'Frontend', 'Backend', 'Databases & Tools'];
-
-  const filteredSkills = SKILLS.filter(s => s.category === activeCategory);
-
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'Code2': return Code2;
-      case 'FileCode2': return FileCode2;
-      case 'Code': return Code2;
-      case 'Terminal': return Terminal;
-      case 'Database': return Database;
-      case 'Layout': return Layout;
-      case 'Atom': return Atom;
-      case 'Zap': return Zap;
-      case 'Palette': return Palette;
-      case 'Grid': return Grid;
-      case 'Server': return Server;
-      case 'Cpu': return Cpu;
-      case 'Network': return Network;
-      case 'HardDrive': return HardDrive;
-      case 'GitBranch': return GitBranch;
-      case 'Send': return Send;
-      default: return Code2;
-    }
-  };
+  const filteredSkills = useMemo(
+    () => SKILLS.filter((s) => s.category === activeCategory),
+    [activeCategory]
+  );
 
   return (
     <section id="skills" className="py-24 relative bg-cyber-grid bg-[#070a13]">
       
       {/* Glow Orbs */}
-      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none transform translate-z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -54,13 +71,13 @@ export const Skills: React.FC = () => {
 
         {/* Category Filter Tabs */}
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mt-10">
-          {categories.map((cat) => {
+          {CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-mono transition-all ${
+                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-mono transition-all cursor-pointer ${
                   isActive
                     ? 'bg-cyan-500 text-slate-950 font-bold shadow-[0_0_20px_rgba(0,240,255,0.4)] border border-cyan-400'
                     : 'bg-slate-900/80 text-slate-300 border border-slate-800 hover:border-cyan-500/40 hover:text-cyan-300'
@@ -75,7 +92,7 @@ export const Skills: React.FC = () => {
         {/* Skills Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
           {filteredSkills.map((skill, idx) => {
-            const IconComponent = getIcon(skill.iconName);
+            const IconComponent = ICON_MAP[skill.iconName] || Code2;
             return (
               <div
                 key={idx}

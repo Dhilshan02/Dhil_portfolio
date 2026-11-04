@@ -2,7 +2,6 @@ import React from 'react';
 import { X, Download, Printer, FileText, Mail, Camera, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from '../Icons';
-import { downloadCV } from '../../utils/generateCV';
 
 interface CVModalProps {
   isOpen: boolean;
@@ -12,8 +11,9 @@ interface CVModalProps {
 export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
-  const handleDownload = () => {
-    downloadCV();
+  const handleDownload = async () => {
+    const { downloadCV } = await import('../../utils/generateCV');
+    await downloadCV();
   };
 
   const handlePrint = () => {

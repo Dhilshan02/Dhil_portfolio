@@ -1,7 +1,6 @@
 import React from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { Play, ArrowDown, FileText, Sparkles, Terminal, Code2, ShieldCheck } from 'lucide-react';
-import { downloadCV } from '../utils/generateCV';
 
 interface HeroProps {
   onOpenCV: () => void;
@@ -9,11 +8,16 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
+  const handleDownloadCV = async () => {
+    const { downloadCV } = await import('../utils/generateCV');
+    await downloadCV();
+  };
+
   return (
     <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden bg-cyber-grid">
       {/* Ambient background glow orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none transform translate-z-0" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none transform translate-z-0" />
       
       {/* Floating Watermark Initial 'D' */}
       <div className="watermark-initial">D</div>
@@ -44,6 +48,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
                   <img
                     src={PERSONAL_INFO.portrait}
                     alt={PERSONAL_INFO.name}
+                    width={1024}
+                    height={576}
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-auto object-cover rounded-2xl filter contrast-105 brightness-105 group-hover:scale-105 transition-transform duration-700"
                   />
                   <div className="scanline"></div>
@@ -132,8 +140,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
             {/* Action CTAs */}
             <div className="pt-2 flex flex-wrap justify-center gap-4 items-center">
               <button
-                onClick={downloadCV}
-                className="px-6 py-3.5 rounded-xl bg-linear-to-r from-cyan-500 via-teal-400 to-cyan-400 text-slate-950 font-bold text-sm font-mono uppercase tracking-wider hover:shadow-[0_0_30px_rgba(0,240,255,0.6)] hover:scale-[1.02] transition-all flex items-center gap-2"
+                onClick={handleDownloadCV}
+                className="px-6 py-3.5 rounded-xl bg-linear-to-r from-cyan-500 via-teal-400 to-cyan-400 text-slate-950 font-bold text-sm font-mono uppercase tracking-wider hover:shadow-[0_0_30px_rgba(0,240,255,0.6)] hover:scale-[1.02] transition-all flex items-center gap-2 cursor-pointer"
               >
                 <FileText className="w-4 h-4" />
                 <span>Download CV</span>
@@ -141,7 +149,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
 
               <button
                 onClick={onOpenDemo}
-                className="px-6 py-3.5 rounded-xl bg-slate-900/80 border border-cyan-500/40 text-cyan-300 font-mono text-sm uppercase tracking-wider hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-white transition-all flex items-center gap-2 group"
+                className="px-6 py-3.5 rounded-xl bg-slate-900/80 border border-cyan-500/40 text-cyan-300 font-mono text-sm uppercase tracking-wider hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-white transition-all flex items-center gap-2 group cursor-pointer"
               >
                 <div className="w-6 h-6 rounded-full bg-cyan-500/20 flex items-center justify-center group-hover:bg-cyan-400 group-hover:text-slate-950 transition-colors">
                   <Play className="w-3 h-3 fill-current ml-0.5" />
