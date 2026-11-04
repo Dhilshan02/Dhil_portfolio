@@ -1,0 +1,358 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #070a13;
+    --bg-card: rgba(13, 18, 30, 0.7);
+    --border-cyan: rgba(0, 240, 255, 0.2);
+    --cyan-glow: rgba(0, 240, 255, 0.4);
+    --accent-cyan: #00f0ff;
+    --accent-teal: #00e5ff;
+    --accent-purple: #8b5cf6;
+
+    /* Theme Palette 2: Pure Black, Emerald & Gold */
+    --color-background: #020202;
+    --color-emerald: #07110D;
+    --color-forest: #091A13;
+    --color-gold: #C5A36A;
+    --color-gold-light: #E5D2A8;
+    --color-text: #D4D0C5;
+    --color-border: #28372E;
+  }
+
+  body {
+    background-color: #070a13;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070a13;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.5);
+}
+
+/* Cyber Grid & Background Animations */
+.bg-cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-cyber-radial {
+  background: radial-gradient(circle at 50% 20%, rgba(0, 240, 255, 0.08) 0%, rgba(139, 92, 246, 0.05) 40%, transparent 70%);
+}
+
+.glass-panel {
+  background: rgba(13, 19, 33, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(16, 24, 42, 0.85);
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 12px 40px 0 rgba(0, 240, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+.cyan-glow-text {
+  text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+}
+
+.cyan-glow-box {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+/* Glowing Border Pulse */
+@keyframes border-pulse {
+  0%, 100% {
+    border-color: rgba(0, 240, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+  }
+  50% {
+    border-color: rgba(0, 240, 255, 0.6);
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
+  }
+}
+
+.animate-border-pulse {
+  animation: border-pulse 3s infinite ease-in-out;
+}
+
+/* Animated EKG Pulse Line */
+.ekg-container {
+  width: 100%;
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ekg-line {
+  stroke: #00f0ff;
+  stroke-width: 2.5;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: ekg-draw 4s linear infinite;
+  filter: drop-shadow(0 0 8px #00f0ff);
+}
+
+@keyframes ekg-draw {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Watermark Text */
+.watermark-initial {
+  position: absolute;
+  font-size: 26rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.015);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  font-family: 'Outfit', sans-serif;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Glowing Neon Ring */
+.neon-avatar-ring {
+  position: relative;
+  border-radius: 9999px;
+  padding: 4px;
+  background: linear-gradient(135deg, #00f0ff 0%, #8b5cf6 50%, #00e5ff 100%);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.4), inset 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+/* Cyber Shimmer Effect */
+.shimmer-text {
+  background: linear-gradient(90deg, #ffffff 0%, #00f0ff 50%, #ffffff 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Scanline Overlay */
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0, 240, 255, 0.02) 50%,
+    rgba(0, 240, 255, 0.02)
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* Luxury Emerald & Champagne Gold Theme Override */
+[data-theme="emerald"] body {
+  background-color: #020202 !important;
+  color: #D4D0C5 !important;
+}
+
+[data-theme="emerald"] section#home,
+[data-theme="emerald"] section#skills,
+[data-theme="emerald"] section#experience {
+  background-color: #07110D !important;
+}
+
+[data-theme="emerald"] section#about,
+[data-theme="emerald"] section#projects,
+[data-theme="emerald"] section#contact {
+  background-color: #020202 !important;
+}
+
+[data-theme="emerald"] header {
+  background-color: rgba(2, 2, 2, 0.92) !important;
+  border-color: rgba(197, 163, 106, 0.25) !important;
+}
+
+[data-theme="emerald"] footer {
+  background-color: #020202 !important;
+  border-color: #28372E !important;
+}
+
+[data-theme="emerald"] .glass-panel {
+  background: rgba(9, 26, 19, 0.85) !important;
+  border-color: rgba(197, 163, 106, 0.25) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="emerald"] .glass-panel-hover:hover {
+  background: rgba(14, 40, 29, 0.95) !important;
+  border-color: rgba(197, 163, 106, 0.6) !important;
+  box-shadow: 0 12px 40px 0 rgba(197, 163, 106, 0.25) !important;
+}
+
+[data-theme="emerald"] ::-webkit-scrollbar-track {
+  background: #020202;
+}
+
+[data-theme="emerald"] ::-webkit-scrollbar-thumb {
+  background: rgba(197, 163, 106, 0.35);
+}
+
+[data-theme="emerald"] .ekg-line {
+  stroke: #C5A36A !important;
+  filter: drop-shadow(0 0 8px #C5A36A) !important;
+}
+
+[data-theme="emerald"] .watermark-initial {
+  color: rgba(197, 163, 106, 0.03) !important;
+}
+
+[data-theme="emerald"] .shimmer-text {
+  background: linear-gradient(90deg, #FFFFFF 0%, #C5A36A 50%, #E5D2A8 100%) !important;
+  background-size: 200% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+[data-theme="emerald"] .cyan-glow-text {
+  text-shadow: 0 0 12px rgba(197, 163, 106, 0.6) !important;
+}
+
+[data-theme="emerald"] .text-cyan-400,
+[data-theme="emerald"] .text-cyan-300 {
+  color: #C5A36A !important;
+}
+
+[data-theme="emerald"] .text-cyan-400\/80 {
+  color: rgba(197, 163, 106, 0.8) !important;
+}
+
+[data-theme="emerald"] .text-cyan-500\/60 {
+  color: rgba(197, 163, 106, 0.6) !important;
+}
+
+[data-theme="emerald"] .bg-cyan-500 {
+  background-color: #C5A36A !important;
+  color: #020202 !important;
+}
+
+[data-theme="emerald"] .bg-cyan-500\/10 {
+  background-color: rgba(197, 163, 106, 0.12) !important;
+}
+
+[data-theme="emerald"] .bg-cyan-500\/20 {
+  background-color: rgba(197, 163, 106, 0.22) !important;
+}
+
+[data-theme="emerald"] .bg-cyan-950\/80,
+[data-theme="emerald"] .bg-cyan-950\/60,
+[data-theme="emerald"] .bg-cyan-950\/30 {
+  background-color: rgba(7, 17, 13, 0.9) !important;
+}
+
+[data-theme="emerald"] .border-cyan-500\/40,
+[data-theme="emerald"] .border-cyan-500\/30,
+[data-theme="emerald"] .border-cyan-500\/20,
+[data-theme="emerald"] .border-cyan-500\/15 {
+  border-color: rgba(197, 163, 106, 0.35) !important;
+}
+
+[data-theme="emerald"] .border-cyan-400 {
+  border-color: #C5A36A !important;
+}
+
+[data-theme="emerald"] .from-cyan-500 {
+  --tw-gradient-from: #C5A36A !important;
+}
+
+[data-theme="emerald"] .via-teal-400,
+[data-theme="emerald"] .via-teal-500 {
+  --tw-gradient-via: #E5D2A8 !important;
+}
+
+[data-theme="emerald"] .to-cyan-400,
+[data-theme="emerald"] .to-blue-500,
+[data-theme="emerald"] .to-blue-600 {
+  --tw-gradient-to: #C5A36A !important;
+}
+
+/* Remove all blue and purple glows & accents in Emerald Gold mode */
+[data-theme="emerald"] .bg-purple-600\/10,
+[data-theme="emerald"] .bg-purple-500\/10,
+[data-theme="emerald"] .bg-purple-500\/5,
+[data-theme="emerald"] .bg-purple-950\/60,
+[data-theme="emerald"] .bg-blue-600\/10,
+[data-theme="emerald"] .bg-blue-500\/10,
+[data-theme="emerald"] .bg-blue-950\/60 {
+  background-color: rgba(197, 163, 106, 0.06) !important;
+}
+
+[data-theme="emerald"] .text-purple-300,
+[data-theme="emerald"] .text-purple-400,
+[data-theme="emerald"] .text-blue-300,
+[data-theme="emerald"] .text-blue-400,
+[data-theme="emerald"] .text-blue-500 {
+  color: #E5D2A8 !important;
+}
+
+[data-theme="emerald"] .border-purple-500\/30,
+[data-theme="emerald"] .border-purple-500\/20,
+[data-theme="emerald"] .border-blue-500\/30,
+[data-theme="emerald"] .border-blue-500\/20 {
+  border-color: rgba(197, 163, 106, 0.3) !important;
+}
+
+[data-theme="emerald"] .from-purple-600,
+[data-theme="emerald"] .from-purple-500,
+[data-theme="emerald"] .from-blue-600,
+[data-theme="emerald"] .from-blue-500 {
+  --tw-gradient-from: #C5A36A !important;
+}
+
+[data-theme="emerald"] .to-purple-600,
+[data-theme="emerald"] .to-purple-500,
+[data-theme="emerald"] .to-blue-600,
+[data-theme="emerald"] .to-blue-500 {
+  --tw-gradient-to: #E5D2A8 !important;
+}
