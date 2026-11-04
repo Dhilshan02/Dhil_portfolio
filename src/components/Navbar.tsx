@@ -159,29 +159,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenCV }
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex md:hidden items-center gap-1.5 sm:gap-2">
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-lg border text-xs font-mono transition-all ${
+              aria-label="Toggle Theme"
+              className={`p-2 rounded-lg border text-xs font-mono transition-all cursor-pointer ${
                 theme === 'emerald'
                   ? 'bg-[#091A13] border-[#C5A36A]/50 text-[#C5A36A]'
                   : 'bg-slate-900 border-cyan-500/30 text-cyan-400'
               }`}
               title="Toggle Theme"
             >
-              <Palette className="w-5 h-5" />
+              <Palette className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={onOpenCommandPalette}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-700 text-cyan-400"
+              aria-label="Search and Command Palette"
+              className="p-2 rounded-lg bg-slate-900 border border-slate-700 text-cyan-400 cursor-pointer"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 hover:text-white"
+              aria-label="Toggle Navigation Menu"
+              className="p-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 hover:text-white cursor-pointer"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>

@@ -134,7 +134,10 @@ export const Experience: React.FC = () => {
                       
                       {/* Top Badges Header */}
                       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3">
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <div className="md:hidden p-1.5 rounded-lg bg-cyan-950/80 border border-cyan-500/30 text-cyan-400">
+                            {getItemIcon(item.type)}
+                          </div>
                           <span className="px-3 py-1 rounded-full bg-slate-950/90 border border-slate-700/80 text-slate-300 font-mono text-xs font-semibold flex items-center gap-1.5">
                             <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                             {item.period}

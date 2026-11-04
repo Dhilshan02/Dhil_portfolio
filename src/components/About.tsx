@@ -56,9 +56,9 @@ export const About: React.FC = () => {
           {STATS.map((stat, idx) => (
             <div
               key={idx}
-              className="glass-panel glass-panel-hover p-6 rounded-2xl border border-cyan-500/20 text-center relative overflow-hidden group"
+              className="glass-panel glass-panel-hover p-4 sm:p-6 rounded-2xl border border-cyan-500/20 text-center relative overflow-hidden group"
             >
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-mono text-cyan-400 cyan-glow-text">
+              <div className="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-mono text-cyan-400 cyan-glow-text">
                 {stat.value}{stat.suffix}
               </div>
               <div className="text-sm font-semibold text-white mt-2 font-heading">

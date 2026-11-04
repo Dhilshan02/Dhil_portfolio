@@ -139,9 +139,9 @@ export const Contact: React.FC = () => {
                   <div className={`p-3 rounded-xl border ${item.color} group-hover:scale-110 transition-transform`}>
                     <IconComponent className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <span className="text-xs font-mono text-slate-400">{item.title}</span>
-                    <p className="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors font-mono">
+                    <p className="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors font-mono truncate">
                       {item.value}
                     </p>
                   </div>

@@ -142,7 +142,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenCaseStudy, onOpenDemo 
               </div>
 
               {/* Bottom Actions Bar */}
-              <div className="px-6 py-4 border-t border-slate-800/80 bg-slate-950/40 flex items-center justify-between">
+              <div className="px-5 sm:px-6 py-4 border-t border-slate-800/80 bg-slate-950/40 flex flex-wrap items-center justify-between gap-3">
                 {project.githubUrl ? (
                   <a
                     href={project.githubUrl}

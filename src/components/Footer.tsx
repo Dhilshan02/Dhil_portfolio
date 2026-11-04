@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
                 DHILSHAN <span className="text-cyan-400">MOHAMED</span>
               </span>
             </a>
-            <p className="text-xs font-mono text-slate-500">
+            <p className="text-xs font-mono text-slate-500 text-center md:text-left">
               © {new Date().getFullYear()} Dhilshan Mohamed. All Rights Reserved. Built with React, TypeScript & Vanilla CSS.
             </p>
           </div>
