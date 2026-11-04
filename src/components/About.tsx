@@ -92,7 +92,11 @@ export const About: React.FC = () => {
               </p>
 
               <p className="text-slate-300 text-sm leading-relaxed">
-                My primary expertise lies in **Java Spring Boot**, **ASP.NET Core 8**, and modern **React with TypeScript**. Whether architecting relational databases or refining UI micro-interactions, I focus on write-once, scale-forever code.
+                My primary expertise lies in <strong className="text-white">Java Spring Boot</strong>, <strong className="text-white">ASP.NET Core 8</strong>, and modern <strong className="text-white">React with TypeScript</strong>. Whether architecting relational databases or refining UI micro-interactions, I focus on write-once, scale-forever code.
+              </p>
+
+              <p className="text-slate-300 text-sm leading-relaxed">
+                As the founder and owner of <strong className="text-amber-300">DD Photography 95</strong>, I bring an eye for creative composition, visual hierarchy, and client empathy directly into UI/UX design and frontend development.
               </p>
             </div>
 
@@ -107,8 +111,8 @@ export const About: React.FC = () => {
                 <span>Methodology: Agile, Clean Code, CI/CD Workflows</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
-                <span>Creative Venture: Founder & Lead @ DD PHOTOGRAPHY 95</span>
+                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+                <span className="text-amber-200/90">Studio Owner: Founder & Creative Lead @ DD PHOTOGRAPHY 95</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-cyan-400" />

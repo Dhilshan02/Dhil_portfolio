@@ -27,10 +27,15 @@ export interface TimelineItem {
   role: string;
   institution: string;
   location: string;
+  category?: 'Education' | 'Creative Venture' | 'Experience' | 'Certification';
+  type?: 'education' | 'venture' | 'diploma' | 'experience';
+  badge?: string;
   description: string;
   achievements: string[];
   skills: string[];
   isCurrent?: boolean;
+  spotlight?: string;
+  accentColor?: 'cyan' | 'amber' | 'purple' | 'teal';
 }
 
 export interface StatItem {

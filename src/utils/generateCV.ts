@@ -58,12 +58,12 @@ export const generateCV = (): jsPDF => {
 
   doc.setFontSize(9.5);
   doc.setTextColor(...COLORS.darkGray);
-  doc.text('SOFTWARE ENGINEERING UNDERGRADUATE', margin, y);
+  doc.text('SOFTWARE ENGINEERING UNDERGRADUATE & STUDIO OWNER (DD PHOTOGRAPHY 95)', margin, y);
   y += 4.5;
 
   doc.setFontSize(8.5);
   doc.setTextColor(...COLORS.muted);
-  doc.text('FULL-STACK DEVELOPMENT | BACKEND DEVELOPMENT | SOFTWARE ENGINEERING', margin, y);
+  doc.text('FULL-STACK DEVELOPMENT | BACKEND ARCHITECTURE | CREATIVE DIRECTION', margin, y);
   y += 5;
 
   // Contact Info Row 1
@@ -81,8 +81,8 @@ export const generateCV = (): jsPDF => {
   doc.text(clean(contact2), margin, y);
   y += 4;
 
-  // Contact Info Row 3 - Portfolio
-  const portfolioText = `Portfolio: dhilshan-portfolio.vercel.app`;
+  // Contact Info Row 3 - Portfolio & Studio
+  const portfolioText = `Portfolio: dhilshan-portfolio.vercel.app   |   Studio: DD PHOTOGRAPHY 95`;
   doc.text(clean(portfolioText), margin, y);
   y += 5;
 
@@ -95,7 +95,7 @@ export const generateCV = (): jsPDF => {
   // 1. PROFESSIONAL SUMMARY
   sectionHeader('PROFESSIONAL SUMMARY');
   const summaryText =
-    'Software Engineering undergraduate at NSBM Green University progressing into 3rd year with hands-on experience developing responsive web applications and working with APIs, databases, and modern software engineering practices. Interested in Full-Stack Engineering, Backend Development, and Software Quality Assurance roles. Strong focus on clean code, software architecture, problem solving, usability, and continuous learning.';
+    'Software Engineering undergraduate at NSBM Green University progressing into 3rd year and founder/owner of DD Photography 95. Experienced in architecting and delivering full-stack web applications with Java Spring Boot, ASP.NET Core 8, and modern React with TypeScript. Combines rigorous software engineering methodologies with artistic visual composition, creative direction, and client relationship management.';
   
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8.5);
@@ -108,14 +108,14 @@ export const generateCV = (): jsPDF => {
   });
   y += 1.5;
 
-  // 2. TECHNICAL SKILLS
-  sectionHeader('TECHNICAL SKILLS');
+  // 2. TECHNICAL SKILLS & CREATIVE TOOLS
+  sectionHeader('TECHNICAL SKILLS & CREATIVE TOOLS');
 
   const skillsData = [
-    { label: 'Frontend', items: 'HTML, CSS, JavaScript, TypeScript, React, Tailwind CSS, Bootstrap, Component Architecture' },
-    { label: 'Backend', items: 'Java, Spring Boot, ASP.NET Core 8, C#, REST APIs, JWT Authentication' },
-    { label: 'Database', items: 'SQL, MySQL, PostgreSQL, Microsoft SQL Server' },
-    { label: 'Tools', items: 'Git, GitHub, Postman, Vite, EmailJS, Figma, OpenAPI/Swagger' },
+    { label: 'Frontend', items: 'HTML5, CSS3, JavaScript (ES6+), TypeScript, React 19, Tailwind CSS, Bootstrap, Component Architecture' },
+    { label: 'Backend', items: 'Java, Spring Boot, ASP.NET Core 8, C#, REST APIs, JWT Authentication, Microservices' },
+    { label: 'Database', items: 'SQL, MySQL, PostgreSQL, Microsoft SQL Server, Schema Optimization' },
+    { label: 'Tools & Creative', items: 'Git, GitHub, Postman, Vite, Figma, Adobe Photoshop, Adobe Lightroom, OpenAPI/Swagger' },
   ];
 
   skillsData.forEach((skill) => {
@@ -141,8 +141,70 @@ export const generateCV = (): jsPDF => {
   });
   y += 1.5;
 
-  // 3. PROJECTS
-  sectionHeader('PROJECTS');
+  // 3. LEADERSHIP & PRACTICAL EXPERIENCE
+  sectionHeader('LEADERSHIP & PRACTICAL EXPERIENCE');
+
+  const experiences = [
+    {
+      role: 'Founder, Studio Owner & Creative Director',
+      company: 'DD Photography 95',
+      period: '2022 - Present | Mullipothana, Trincomalee',
+      bullets: [
+        'Founded and manage all operations for DD Photography 95, delivering high-end wedding, event, and portrait photography.',
+        'Direct lighting composition, camera operations, and advanced digital post-production in Adobe Lightroom & Photoshop.',
+        'Manage client consultations, contract proposals, scheduling, and digital asset delivery with a 100% satisfaction track record.',
+        'Apply visual hierarchy, color harmony, and UX empathy from photography directly into responsive frontend interfaces.',
+      ],
+    },
+    {
+      role: 'Full-Stack Software Engineering Projects',
+      company: 'Independent & Open Source',
+      period: '2023 - Present',
+      bullets: [
+        'Shipped 5+ production-grade web applications utilizing React, Spring Boot, and ASP.NET Core with PostgreSQL & MySQL.',
+        'Implemented secure JWT authentication, automated API tests in Postman, and responsive modern glassmorphic UIs.',
+      ],
+    },
+  ];
+
+  experiences.forEach((exp) => {
+    ensure(18);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9.5);
+    doc.setTextColor(...COLORS.black);
+    doc.text(clean(exp.role), margin, y);
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8.5);
+    doc.setTextColor(...COLORS.darkGray);
+    doc.text(clean(exp.company), margin + contentW, y, { align: 'right' });
+    y += 4;
+
+    doc.setFont('helvetica', 'oblique');
+    doc.setFontSize(8);
+    doc.setTextColor(...COLORS.darkGray);
+    doc.text(clean(exp.period), margin, y);
+    y += 4;
+
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    exp.bullets.forEach((bulletText) => {
+      const lines = doc.splitTextToSize(clean(bulletText), contentW - 5) as string[];
+      lines.forEach((line, i) => {
+        ensure(3.8);
+        doc.setTextColor(...COLORS.bodyText);
+        if (i === 0) {
+          doc.text('-', margin + 1.5, y);
+        }
+        doc.text(line, margin + 5, y);
+        y += 3.8;
+      });
+    });
+    y += 2;
+  });
+
+  // 4. PROJECTS
+  sectionHeader('KEY SOFTWARE PROJECTS');
 
   const projects = [
     {
@@ -175,7 +237,6 @@ export const generateCV = (): jsPDF => {
       bullets: [
         'Developed a pharmacy software application for inventory tracking, automated low-stock alert notifications, and sales reporting.',
         'Implemented relational database schemas and optimized SQL queries for efficient medicine search operations.',
-        'Documented structured test cases and performed functional testing to ensure accurate stock search and alert dispatch.',
       ],
     },
     {
@@ -236,7 +297,7 @@ export const generateCV = (): jsPDF => {
     y += 2;
   });
 
-  // 4. EDUCATION
+  // 5. EDUCATION
   sectionHeader('EDUCATION');
 
   const eduList = [
@@ -268,13 +329,13 @@ export const generateCV = (): jsPDF => {
   });
   y += 1.5;
 
-  // 5. ADDITIONAL SKILLS & LANGUAGES
+  // 6. ADDITIONAL SKILLS & LANGUAGES
   sectionHeader('ADDITIONAL SKILLS & LANGUAGES');
 
   const additionalInfo = [
     {
-      label: 'Additional Skills',
-      items: 'Git/GitHub | Postman | Figma | Agile/Scrum | Problem Solving | Technical Communication | Teamwork | Adaptability',
+      label: 'Additional Competencies',
+      items: 'Studio Photography | Digital Asset Management | Agile/Scrum | Problem Solving | Technical Communication | Teamwork',
     },
     {
       label: 'Languages',

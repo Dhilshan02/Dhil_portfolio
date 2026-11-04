@@ -89,9 +89,9 @@ export const Contact: React.FC = () => {
       color: "text-pink-400 border-pink-500/30 bg-pink-950/60"
     },
     {
-      title: "Photo Studio",
+      title: "Studio Owner & Creative Lead",
       value: PERSONAL_INFO.photoStudio,
-      href: PERSONAL_INFO.facebook,
+      href: PERSONAL_INFO.instagram,
       icon: Camera,
       color: "text-amber-400 border-amber-500/30 bg-amber-950/60"
     }
@@ -114,7 +114,7 @@ export const Contact: React.FC = () => {
             Get In <span className="text-cyan-400">Touch</span>
           </h2>
           <p className="text-slate-400 text-base sm:text-lg">
-            Whether you have an internship opportunity, project inquiry, or technical question — let's connect!
+            Whether you have an internship opportunity, software project inquiry, or DD Photography 95 studio booking — let's connect!
           </p>
         </div>
 

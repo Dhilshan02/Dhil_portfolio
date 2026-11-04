@@ -20,6 +20,9 @@ export const PERSONAL_INFO = {
   instagram: "https://www.instagram.com/dhilshan_mhd?obrf=c3N6OTB3aXlzaDhj&utm_source=qr",
   tiktok: "https://www.tiktok.com/@mr.dhilshan_mhd?_r=1&_t=ZS-9APNdBjj47A",
   photoStudio: "DD PHOTOGRAPHY 95",
+  studioRole: "Founder & Studio Owner",
+  studioLocation: "Mullipothana, Trincomalee",
+  studioTagline: "Visual Storytelling, Commercial Shoots & Creative Direction",
   location: "Colombo, Sri Lanka 🇱🇰",
   portrait: dhilshanPortrait,
   cvFilename: "Dhilshan_Mohamed_CV.pdf"
@@ -152,14 +155,41 @@ export const TIMELINE: TimelineItem[] = [
     role: "BSc (Hons) Software Engineering",
     institution: "NSBM Green University",
     location: "Homagama, Sri Lanka",
+    category: "Education",
+    type: "education",
+    badge: "Undergraduate (3rd Year)",
+    accentColor: "cyan",
     description: "Pursuing specialized software engineering degree focusing on enterprise architecture, full-stack application development, software quality engineering, and database management systems.",
     achievements: [
-      "Maintained strong academic standing across core CS & Software Engineering modules",
+      "Maintained strong academic standing across core CS, Software Architecture & Data modules",
       "Lead developer for multiple university software project modules using Java Spring Boot & React",
-      "Active participant in tech hackathons & software engineering university circles"
+      "Active participant in tech hackathons, coding workshops, and software engineering university circles",
+      "Specialized coursework in Enterprise Systems, Distributed Databases, OOP, and Modern UI/UX Architecture"
     ],
-    skills: ["Spring Boot", "ASP.NET Core 8", "Java", "TypeScript", "Agile Methodologies", "Software Design Patterns"],
+    skills: ["Spring Boot", "ASP.NET Core 8", "Java", "TypeScript", "PostgreSQL", "Agile Methodologies", "Software Design Patterns"],
     isCurrent: true
+  },
+  {
+    id: "dd-photography-95",
+    period: "2022 – Present",
+    role: "Founder, Studio Owner & Creative Director",
+    institution: "DD Photography 95",
+    location: "Mullipothana, Trincomalee",
+    category: "Creative Venture",
+    type: "venture",
+    badge: "Founder & Studio Owner",
+    accentColor: "amber",
+    description: "Founder and sole proprietor of DD Photography 95, an independent photography and visual media studio. Directing end-to-end studio operations, creative photography, lighting design, high-end digital retouching, and client relationship management. Applying strong aesthetic principles and visual composition that directly inform UI/UX and front-end engineering excellence.",
+    achievements: [
+      "Founded and scaled DD Photography 95 into a recognized creative studio specializing in event photography, commercial shoots, and high-fidelity portraits",
+      "Direct full-cycle production: client consultations, creative storyboarding, on-location lighting setup, and professional post-processing",
+      "Advanced mastery of Adobe Photoshop, Adobe Lightroom, color grading, HDR blending, and digital asset management workflows",
+      "Consistently achieved 100% client satisfaction through punctuality, personalized customer experiences, and high-fidelity deliverables",
+      "Harmoniously blends creative visual composition with a software engineering mindset to build visually arresting, user-centered digital interfaces"
+    ],
+    skills: ["Studio Ownership", "Creative Direction", "Portrait & Event Photography", "Adobe Lightroom", "Adobe Photoshop", "Visual Storytelling", "Client Relations", "Digital Asset Workflow"],
+    isCurrent: true,
+    spotlight: "Harmonizing entrepreneurial leadership, creative lighting, and visual storytelling with software engineering discipline."
   },
   {
     id: "idm-diploma",
@@ -167,25 +197,37 @@ export const TIMELINE: TimelineItem[] = [
     role: "International Diploma in Quantity Surveying (Level 4)",
     institution: "Metropolitan College (OTHM Qualifications)",
     location: "Sri Lanka",
-    description: "Awarded the OTHM International Diploma in Quantity Surveying (EQF Level 5), achieving 120 credits (60 ECTS) with a PASS in all six units. Assessed in English.",
+    category: "Certification",
+    type: "diploma",
+    badge: "OTHM UK / 120 Credits (EQF Level 5)",
+    accentColor: "purple",
+    description: "Awarded the prestigious OTHM International Diploma in Quantity Surveying (EQF Level 5), achieving 120 credits (60 ECTS) with a PASS in all six comprehensive units. Assessed in English under rigorous UK technical measurement standards.",
     achievements: [
       "Passed all 6 units: Surveying, Measurement I, Construction Technology & Drawings, Service Engineering Installation, Quantity Surveying Practice, Bidding Procedure",
-      "Achieved 120 total credits and 60 ECTS credits (Pass / Fail grading)",
-      "Qualified for the award on 28 September 2026; transcript issued 02 October 2026"
+      "Achieved 120 total credits and 60 ECTS credits (Pass / Fail grading standard)",
+      "Qualified for the award on 28 September 2026; official transcript issued 02 October 2026",
+      "Developed strong analytical problem-solving skills, dimensional estimation, contract evaluation, and project cost management"
     ],
-    skills: ["Surveying", "Measurement", "Construction Technology", "Bidding Procedure"]
+    skills: ["Surveying", "Measurement & Estimation", "Construction Technology", "Bidding Procedure", "Contract Administration"],
+    isCurrent: false
   },
   {
     id: "freelance-dev",
     period: "2023 – Present",
     role: "Full-Stack Software Engineering Projects",
     institution: "Independent & Open Source",
-    location: "Remote",
+    location: "Remote / Colombo",
+    category: "Experience",
+    type: "experience",
+    badge: "Independent Developer",
+    accentColor: "teal",
     description: "Designing, building, and deploying open-source projects, enterprise REST APIs, and responsive web applications for real-world scenarios.",
     achievements: [
       "Shipped 5+ production-grade web applications utilizing React, Spring Boot, and ASP.NET Core",
-      "Implemented automated testing, JWT authentication, and responsive modern glassmorphic UIs"
+      "Implemented automated testing, JWT authentication, and responsive modern glassmorphic UIs",
+      "Collaborated on Git/GitHub workflows, CI/CD pipeline setups, and modular software designs"
     ],
-    skills: ["React", "Spring Boot", "ASP.NET Core 8", "Git / GitHub", "UI/UX Prototyping"]
+    skills: ["React", "Spring Boot", "ASP.NET Core 8", "PostgreSQL", "Git / GitHub", "UI/UX Prototyping"],
+    isCurrent: true
   }
 ];
