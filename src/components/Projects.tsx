@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { PROJECTS } from '../data/portfolioData';
 import { BookOpen, Eye, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from './Icons';
+import { RepoWipModal } from './Modals/RepoWipModal';
 
 interface ProjectsProps {
   onOpenCaseStudy: () => void;
@@ -10,6 +11,8 @@ interface ProjectsProps {
 
 export const Projects: React.FC<ProjectsProps> = ({ onOpenCaseStudy, onOpenDemo }) => {
   const [activeTab, setActiveTab] = useState<string>('All Projects');
+  const [isRepoModalOpen, setIsRepoModalOpen] = useState(false);
+  const [selectedProjectTitle, setSelectedProjectTitle] = useState<string | undefined>();
 
   const tabs = ['All Projects', 'Full-Stack', 'AI & Cloud', 'UI/UX Design'];
 
@@ -144,16 +147,18 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenCaseStudy, onOpenDemo 
               {/* Bottom Actions Bar */}
               <div className="px-5 sm:px-6 py-4 border-t border-slate-800/80 bg-slate-950/40 flex flex-wrap items-center justify-between gap-3">
                 {project.githubUrl ? (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 text-xs font-mono text-slate-300 hover:text-cyan-400 transition-colors"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedProjectTitle(project.title);
+                      setIsRepoModalOpen(true);
+                    }}
+                    className="flex items-center gap-2 text-xs font-mono text-slate-300 hover:text-cyan-400 transition-colors cursor-pointer group/repo"
                   >
-                    <GithubIcon className="w-4 h-4 text-cyan-400" />
+                    <GithubIcon className="w-4 h-4 text-cyan-400 group-hover/repo:scale-110 transition-transform" />
                     <span>View GitHub Repository</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-500" />
-                  </a>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-500 group-hover/repo:text-cyan-400 transition-colors" />
+                  </button>
                 ) : (
                   <span className="text-xs font-mono text-slate-500 italic">Private Design Case Study</span>
                 )}
@@ -161,7 +166,7 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenCaseStudy, onOpenDemo 
                 {project.hasCaseStudy && (
                   <button
                     onClick={onOpenCaseStudy}
-                    className="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1 font-semibold"
+                    className="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1 font-semibold cursor-pointer"
                   >
                     <span>Read UX Process</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -174,6 +179,13 @@ export const Projects: React.FC<ProjectsProps> = ({ onOpenCaseStudy, onOpenDemo 
         </div>
 
       </div>
+
+      {/* Work In Progress Repository Notification Modal */}
+      <RepoWipModal
+        isOpen={isRepoModalOpen}
+        onClose={() => setIsRepoModalOpen(false)}
+        projectName={selectedProjectTitle}
+      />
     </section>
   );
 };
