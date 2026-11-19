@@ -71,7 +71,7 @@ export const generateCV = async (): Promise<jsPDF> => {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8.5);
   doc.setTextColor(...COLORS.bodyText);
-  const contact1 = `+94 77 123 4567   |   ${PERSONAL_INFO.email}   |   Sri Lanka`;
+  const contact1 = `${PERSONAL_INFO.phone}   |   ${PERSONAL_INFO.email}   |   Sri Lanka`;
   doc.text(clean(contact1), margin, y);
   y += 4;
 

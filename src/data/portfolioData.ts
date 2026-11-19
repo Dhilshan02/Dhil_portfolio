@@ -13,6 +13,7 @@ export const PERSONAL_INFO = {
   university: "NSBM Green University",
   tagline: "Innovative. Analytical. Unconventional. He doesn't just write code — He gets to the solution.",
   statusText: "Seeking Software Engineering & Full-Stack Development Internship Opportunities",
+  phone: "+94 755189759",
   email: "Dhilshanmohamed2002@gmail.com",
   linkedin: "https://www.linkedin.com/in/dhilshan-mohamed-1b77a23a3?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   github: "https://github.com/Dhilshan02",
@@ -23,6 +24,7 @@ export const PERSONAL_INFO = {
   studioRole: "Founder & Studio Owner",
   studioLocation: "Mullipothana, Trincomalee",
   studioTagline: "Visual Storytelling, Commercial Shoots & Creative Direction",
+  studioInstagram: "https://www.instagram.com/_dd_photography_95_?xtok=amYyZTRwYm05ZGZ6",
   location: "Colombo, Sri Lanka 🇱🇰",
   portrait: dhilshanPortrait,
   cvFilename: "Dhilshan_Mohamed_CV.pdf"

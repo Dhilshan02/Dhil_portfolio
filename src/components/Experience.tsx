@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { TIMELINE } from '../data/portfolioData';
+import { TIMELINE, PERSONAL_INFO } from '../data/portfolioData';
 import {
   GraduationCap,
   Award,
@@ -9,7 +9,8 @@ import {
   CheckCircle2,
   Camera,
   Sparkles,
-  Layers
+  Layers,
+  ArrowUpRight
 } from 'lucide-react';
 import type { TimelineItem } from '../types';
 
@@ -165,7 +166,20 @@ export const Experience: React.FC = () => {
                           {item.role}
                         </h3>
                         <div className="flex flex-wrap items-center gap-2 mt-1 text-sm font-mono text-cyan-400">
-                          <span className="font-semibold text-white/90">{item.institution}</span>
+                          {item.id === 'dd-photography-95' ? (
+                            <a
+                              href={PERSONAL_INFO.studioInstagram}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="font-semibold text-white/90 hover:text-cyan-400 hover:underline flex items-center gap-1 transition-colors"
+                              title="Visit DD Photography 95 on Instagram"
+                            >
+                              <span>{item.institution}</span>
+                              <ArrowUpRight className="w-3.5 h-3.5 text-cyan-400" />
+                            </a>
+                          ) : (
+                            <span className="font-semibold text-white/90">{item.institution}</span>
+                          )}
                           <span>•</span>
                           <span className="text-slate-400 text-xs flex items-center gap-1">
                             <MapPin className="w-3 h-3 text-slate-500" />

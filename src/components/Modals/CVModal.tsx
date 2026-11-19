@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Download, Printer, FileText, Mail, Camera, Sparkles } from 'lucide-react';
+import { X, Download, Printer, FileText, Mail, Phone, Camera, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from '../Icons';
 
@@ -84,8 +84,16 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
 
             <div className="space-y-1.5 font-mono text-xs text-slate-300">
               <div className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-cyan-400" />
+                <a href={`tel:${PERSONAL_INFO.phone}`} className="hover:text-cyan-400 transition-colors">
+                  {PERSONAL_INFO.phone}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-cyan-400" />
-                <span>{PERSONAL_INFO.email}</span>
+                <a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-cyan-400 transition-colors">
+                  {PERSONAL_INFO.email}
+                </a>
               </div>
               <div className="flex items-center gap-2">
                 <LinkedinIcon className="w-3.5 h-3.5 text-cyan-400" />

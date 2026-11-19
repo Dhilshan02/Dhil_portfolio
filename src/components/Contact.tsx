@@ -91,7 +91,7 @@ export const Contact: React.FC = () => {
     {
       title: "Studio Owner & Creative Lead",
       value: PERSONAL_INFO.photoStudio,
-      href: PERSONAL_INFO.instagram,
+      href: PERSONAL_INFO.studioInstagram,
       icon: Camera,
       color: "text-cyan-400 border-cyan-500/30 bg-cyan-950/60"
     }
