@@ -83,7 +83,7 @@ export const generateCV = async (): Promise<jsPDF> => {
   y += 4;
 
   // Contact Info Row 3 - Portfolio & Studio
-  const portfolioText = `Portfolio: dhilshan-portfolio.vercel.app   |   Studio: DD PHOTOGRAPHY 95`;
+  const portfolioText = `Portfolio: dhilshan-mhd.vercel.app   |   Studio: DD PHOTOGRAPHY 95`;
   doc.text(clean(portfolioText), margin, y);
   y += 5;
 

@@ -15,6 +15,7 @@ export const PERSONAL_INFO = {
   statusText: "Seeking Software Engineering & Full-Stack Development Internship Opportunities",
   phone: "+94 755189759",
   email: "Dhilshanmohamed2002@gmail.com",
+  portfolioUrl: "https://dhilshan-mhd.vercel.app/",
   linkedin: "https://www.linkedin.com/in/dhilshan-mohamed-1b77a23a3?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   github: "https://github.com/Dhilshan02",
   facebook: "https://www.facebook.com/dhilshan.mhd?mibextid=wwXIfr&mibextid=wwXIfr",

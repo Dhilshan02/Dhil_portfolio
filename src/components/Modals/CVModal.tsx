@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Download, Printer, FileText, Mail, Phone, Camera, Sparkles } from 'lucide-react';
+import { X, Download, Printer, FileText, Mail, Phone, Globe, Camera, Sparkles } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from '../Icons';
 
@@ -93,6 +93,17 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
                 <Mail className="w-3.5 h-3.5 text-cyan-400" />
                 <a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-cyan-400 transition-colors">
                   {PERSONAL_INFO.email}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Globe className="w-3.5 h-3.5 text-cyan-400" />
+                <a
+                  href={PERSONAL_INFO.portfolioUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-cyan-400 transition-colors"
+                >
+                  dhilshan-mhd.vercel.app
                 </a>
               </div>
               <div className="flex items-center gap-2">
